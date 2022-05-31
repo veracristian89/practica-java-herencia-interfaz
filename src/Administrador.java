@@ -1,5 +1,5 @@
 
-public class Gerente extends Funcionario {
+public class Administrador extends Funcionario {
 
 	private String clave;
 	
@@ -11,8 +11,10 @@ public class Gerente extends Funcionario {
 		return this.clave == clave;
 	}
 	
+	@Override
 	public double getBonificacion() {
-		return super.getSalario()+ this.getSalario();
+		// TODO Auto-generated method stub
+		return 0;
 	}
-	
+
 }

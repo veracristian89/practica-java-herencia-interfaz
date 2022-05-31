@@ -1,9 +1,9 @@
 //entidad cuenta:
 
-class Cuenta {
+public abstract class Cuenta {
 
-	private double saldo;//al utilizar private ya no se puede acceder al parametro saldo desde una instancia para modificarlo.
-	private int agencia;
+	protected double saldo;//al utilizar private ya no se puede acceder al parametro saldo desde una instancia para modificarlo.
+	private int agencia = 1;
 	private int numero;
 	private Cliente titular = new Cliente();
 	private static int total = 0; // variable estatica, es pasa a ser un atributo de la clase y no de sus posibles instancias.
@@ -18,9 +18,7 @@ class Cuenta {
 	}
 	
 	// metodo sin retorno (void)
-	public void depositar(double monto) {
-		this.saldo += monto;
-	}
+	public abstract void depositar(double monto);
 	
 	//metodo con retorno (boolean, aunque pueden ser distintos retornos como int o double)
 	public boolean retirar(double monto) {

@@ -27,9 +27,7 @@ public abstract class Funcionario {
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
-	
-	public double getBonificacion() {
-		return this.salario * 0.05;
-	}
+			// metodo abstracto sin cuerpo
+	public abstract double getBonificacion();
 	
 }
