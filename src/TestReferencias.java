@@ -2,7 +2,7 @@
 public class TestReferencias {
 
 	public static void main(String[] args) {
-		Funcionario funcionario = new Funcionario();
+		Funcionario funcionario = new Contador();
 		funcionario.setNombre("roberto gomez bolaños");
 		
 		Gerente gerente = new Gerente();

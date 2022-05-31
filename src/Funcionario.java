@@ -1,5 +1,5 @@
-
-public class Funcionario {
+		//una clase abstracta no puede ser instanciada, es una clase generica de la que van a heredar sus hijos
+public abstract class Funcionario {
 
 	private String nombre;
 	private String documento;

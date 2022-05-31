@@ -2,7 +2,8 @@
 public class TestControlBonificacion {
 
 	public static void main(String[] args) {
-		Funcionario cristian = new Funcionario();
+								//si dejaramos Funcionario(); no va a compilar al ser una clase abstracta
+		Funcionario cristian = new Contador();
 		cristian.setSalario(2000);
 		
 		Gerente gisella = new Gerente();
