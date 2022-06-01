@@ -1,18 +1,20 @@
 
-public class Gerente extends Funcionario {
-
-	private String clave;
-	
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
-	
-	public boolean iniciarSesion(String clave) {
-		return this.clave == clave;
-	}
+public class Gerente extends Funcionario implements Autenticable {
 	
 	public double getBonificacion() {
 		return super.getSalario()+ this.getSalario();
+	}
+
+	@Override
+	public void setClave(String clave) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean iniciarSesion(String clave) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }
