@@ -3,7 +3,7 @@ public class SistemaInterno {
 
 	private String clave = "123456";
 	
-	public boolean autentica(Gerente gerente) {
+	public boolean autentica(Autenticable gerente) {
 		boolean puedeIniciarSesion = gerente.iniciarSesion(clave);
 		if(puedeIniciarSesion) {
 			System.out.println("Login Exitoso");
