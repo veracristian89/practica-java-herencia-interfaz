@@ -20,19 +20,23 @@ public abstract class Cuenta {
 	// metodo sin retorno (void)
 	public abstract void depositar(double monto);
 	
-	//metodo con retorno (boolean, aunque pueden ser distintos retornos como int o double)
-	public boolean retirar(double monto) {
-		if (this.saldo >= monto) {
-			this.saldo -= monto;
-			return true;
-		} else {
-			return false;
+	public void retirar(double monto) throws SaldoInsuficientException {
+		//por buenas practicas las excepciones van al principio del metodo
+		if (this.saldo < monto) {
+			throw new SaldoInsuficientException("no tiene saldo");
 		}
+			this.saldo -= monto;
+			
 	}
 	
 	public boolean transferir(double monto, Cuenta cuenta){
 		if(this.saldo >= monto) {
-			this.retirar(monto);
+			try {
+				this.retirar(monto);
+			} catch (SaldoInsuficientException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			cuenta.depositar(monto);
 			return true;
 		} else {
