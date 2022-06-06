@@ -1,6 +1,12 @@
 package com.bytebank.modelo;
 
-//entidad cuenta:
+/**
+ * Cuenta va a crear nuevas instancias de CuentaCorriente y CuentaAhorro
+ * 
+ * @version 1.0
+ * @author crizgize
+ *
+ */
 public abstract class Cuenta {
 
 	protected double saldo;//al utilizar private ya no se puede acceder al parametro saldo desde una instancia para modificarlo.
