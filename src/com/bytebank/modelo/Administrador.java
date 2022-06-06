@@ -1,16 +1,13 @@
+package com.bytebank.modelo;
 
-public class Gerente extends Funcionario implements Autenticable {
+public class Administrador extends Funcionario implements Autenticable {
 	
 	private AutenticacionUtil util;
-	
-	public Gerente() {
+
+	public Administrador() {
 		this.util = new AutenticacionUtil();
 	}
 	
-	public double getBonificacion() {
-		return super.getSalario()+ this.getSalario();
-	}
-
 	@Override
 	public void setClave(String clave) {
 		this.setClave(clave);
@@ -20,5 +17,10 @@ public class Gerente extends Funcionario implements Autenticable {
 	public boolean iniciarSesion(String clave) {
 		return this.util.iniciarSesion(clave);
 	}
-	
+
+	@Override
+	public double getBonificacion() {
+		return this.getSalario();
+	}
+
 }

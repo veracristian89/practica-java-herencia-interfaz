@@ -1,5 +1,6 @@
-//entidad cuenta:
+package com.bytebank.modelo;
 
+//entidad cuenta:
 public abstract class Cuenta {
 
 	protected double saldo;//al utilizar private ya no se puede acceder al parametro saldo desde una instancia para modificarlo.
