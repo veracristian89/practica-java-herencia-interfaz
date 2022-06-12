@@ -98,10 +98,5 @@ public abstract class Cuenta {
 		Cuenta cuenta = (Cuenta) obj;
 		return this.agencia == cuenta.getAgencia() && this.numero == cuenta.getNumero();
 	}
-	
-	
-	public boolean esIgual(Cuenta cuenta) {
-		return this.agencia == cuenta.getAgencia() && this.numero == cuenta.getNumero();
-	}
 		
 }
