@@ -10,8 +10,8 @@ public class TestMain {
 		
 		//como agrupar en un a sola referencia? 
 						// se asigna el tamaño del array
-						// 0 1 2 3 4
-						//[ | | | | ]
+						// 0 1  2 3 4
+						//[ | |30| | ]
 		int[] edades = new int[5];
 		
 		edades[2] = 30;

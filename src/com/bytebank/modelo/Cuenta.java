@@ -86,4 +86,10 @@ public abstract class Cuenta {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	
+	@Override
+    public String toString() {
+        String cuenta = "Numero: " + this.numero + ", Agencia:" + this.agencia;
+        return cuenta;
+	}
 }
