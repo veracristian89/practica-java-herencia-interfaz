@@ -74,7 +74,7 @@ public class TestOrdernarLista {
 		for (Cuenta cuenta: lista) {
 			System.out.println(cuenta);
 		}
-		//forma antigua**********
+		//forma antigua********** el metodo con el que se va a ordenar esta en Cuenta(implementa Comparable y su metodo correspondiente)
 		Collections.sort(lista);
 		
 		System.out.println("despues de ordenar por orden natural");
