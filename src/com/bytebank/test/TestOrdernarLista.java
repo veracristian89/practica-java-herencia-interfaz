@@ -50,20 +50,31 @@ public class TestOrdernarLista {
 			System.out.println(cuenta);
 		}
 		
+		
 		// Ordenar las cuentas
 		//				cualquier clase hija de Cuenta o Cuenta en si.
 		// Comparater <? extends Cuenta> c
-//		Comparator<Cuenta> comparator = new OrdenadorPorNombreTitular();
-//		lista.sort(comparator);
-//		Comparator<Cuenta> comparatorN = new OrdenadorPorNumeroCuenta();
-//		lista.sort(comparatorN);
 		
-		Collections.sort(lista, new OrdenadorPorNombreTitular());
-		System.out.println("despues de ordenar por nombre");
+		Comparator<Cuenta> comparator = new OrdenadorPorNombreTitular();
+		lista.sort(comparator);
+		//forma nueva**********
+		lista.sort(comparator);
+		System.out.println("despues de ordenar por nombre forma nueva");
 		for (Cuenta cuenta: lista) {
 			System.out.println(cuenta);
 		}
 		
+//		Comparator<Cuenta> comparatorN = new OrdenadorPorNumeroCuenta();
+//		lista.sort(comparatorN);
+		
+		//forma antigua**********
+		Collections.sort(lista, new OrdenadorPorNombreTitular());
+		
+		System.out.println("despues de ordenar por nombre");
+		for (Cuenta cuenta: lista) {
+			System.out.println(cuenta);
+		}
+		//forma antigua**********
 		Collections.sort(lista);
 		
 		System.out.println("despues de ordenar por orden natural");
