@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.imageio.plugins.tiff.GeoTIFFTagSet;
+
 import com.bytebank.modelo.Cliente;
 import com.bytebank.modelo.Cuenta;
 import com.bytebank.modelo.CuentaAhorro;
@@ -51,29 +53,42 @@ public class TestOrdernarLista {
 		}
 		
 		
-		// Ordenar las cuentas
-		//				cualquier clase hija de Cuenta o Cuenta en si.
-		// Comparater <? extends Cuenta> c
+		// ORDENAR LAS CUENTAS
 		
-		Comparator<Cuenta> comparator = new OrdenadorPorNombreTitular();
-		lista.sort(comparator);
-		//forma nueva**********
-		lista.sort(comparator);
+		//******************************************************
+		// forma correcta de ordenar con interface Collection de java.util
+					// esto se llama clase anonima
+		lista.sort(new Comparator<Cuenta>() {
+
+			@Override
+			public int compare(Cuenta o1, Cuenta o2) {
+				return Integer.compare(o1.getNumero(), o2.getNumero());
+			}			
+		});
+		
 		System.out.println("despues de ordenar por nombre forma nueva");
 		for (Cuenta cuenta: lista) {
 			System.out.println(cuenta);
 		}
 		
-//		Comparator<Cuenta> comparatorN = new OrdenadorPorNumeroCuenta();
-//		lista.sort(comparatorN);
-		
-		//forma antigua**********
-		Collections.sort(lista, new OrdenadorPorNombreTitular());
+		//*******************************************************
+		// forma correcta de ordenar con clase Collections y metodo sort de java.util
+							// esto se llama clase anonima
+		Collections.sort(lista, new Comparator<Cuenta>() {
+
+			@Override
+			public int compare(Cuenta o1, Cuenta o2) {
+				return o1.getTitular().getNombre().compareTo(o2.getTitular().getNombre());
+			}
+		});
 		
 		System.out.println("despues de ordenar por nombre");
 		for (Cuenta cuenta: lista) {
 			System.out.println(cuenta);
 		}
+		//*******************************************************
+		
+		
 		//forma antigua********** el metodo con el que se va a ordenar esta en Cuenta(implementa Comparable y su metodo correspondiente)
 		Collections.sort(lista);
 		
