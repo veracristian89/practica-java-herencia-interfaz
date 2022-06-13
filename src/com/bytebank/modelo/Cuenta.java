@@ -7,7 +7,7 @@ package com.bytebank.modelo;
  * @author crizgize
  *
  */
-public abstract class Cuenta {
+public abstract class Cuenta implements Comparable<Cuenta> {
 
 	protected double saldo;//al utilizar private ya no se puede acceder al parametro saldo desde una instancia para modificarlo.
 	private int agencia = 1;
@@ -97,6 +97,11 @@ public abstract class Cuenta {
 	public boolean equals(Object obj) {
 		Cuenta cuenta = (Cuenta) obj;
 		return this.agencia == cuenta.getAgencia() && this.numero == cuenta.getNumero();
+	}
+	
+	@Override
+	public int compareTo(Cuenta o) {
+		return Integer.compare(this.agencia, o.getAgencia());
 	}
 		
 }

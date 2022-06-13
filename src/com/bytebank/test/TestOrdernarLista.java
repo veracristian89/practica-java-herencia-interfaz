@@ -1,6 +1,8 @@
 package com.bytebank.test;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -13,13 +15,13 @@ public class TestOrdernarLista {
 
 	public static void main(String[] args) {
 		
-		Cuenta cc1 = new CuentaCorriente(22, 33);
+		Cuenta cc1 = new CuentaCorriente(62, 33);
 		Cliente clientecc1 = new Cliente();
 		clientecc1.setNombre("Diego");
 		cc1.setTitular(clientecc1);
 		cc1.depositar(333.0);
 		
-		Cuenta cc2 = new CuentaAhorro(22, 44);
+		Cuenta cc2 = new CuentaAhorro(32, 44);
 		Cliente clientecc2 = new Cliente();
 		clientecc2.setNombre("Renato");
 		cc2.setTitular(clientecc2);
@@ -31,7 +33,7 @@ public class TestOrdernarLista {
 		cc3.setTitular(clientecc3);
 		cc3.depositar(111.0);
 		
-		Cuenta cc4 = new CuentaAhorro(22, 22);
+		Cuenta cc4 = new CuentaAhorro(12, 22);
 		Cliente clientecc4 = new Cliente();
 		clientecc4.setNombre("Noel");
 		cc4.setTitular(clientecc4);
@@ -51,11 +53,20 @@ public class TestOrdernarLista {
 		// Ordenar las cuentas
 		//				cualquier clase hija de Cuenta o Cuenta en si.
 		// Comparater <? extends Cuenta> c
-		Comparator<Cuenta> comparator = new OrdenadorPorNombreTitular();
-		lista.sort(comparator);
-		Comparator<Cuenta> comparatorN = new OrdenadorPorNumeroCuenta();
-		lista.sort(comparatorN);
-		System.out.println("despues de ordenar");
+//		Comparator<Cuenta> comparator = new OrdenadorPorNombreTitular();
+//		lista.sort(comparator);
+//		Comparator<Cuenta> comparatorN = new OrdenadorPorNumeroCuenta();
+//		lista.sort(comparatorN);
+		
+		Collections.sort(lista, new OrdenadorPorNombreTitular());
+		System.out.println("despues de ordenar por nombre");
+		for (Cuenta cuenta: lista) {
+			System.out.println(cuenta);
+		}
+		
+		Collections.sort(lista);
+		
+		System.out.println("despues de ordenar por orden natural");
 		for (Cuenta cuenta: lista) {
 			System.out.println(cuenta);
 		}
