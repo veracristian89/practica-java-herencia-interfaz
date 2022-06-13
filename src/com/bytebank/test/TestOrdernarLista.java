@@ -51,9 +51,10 @@ public class TestOrdernarLista {
 		// Ordenar las cuentas
 		//				cualquier clase hija de Cuenta o Cuenta en si.
 		// Comparater <? extends Cuenta> c
-		Comparator<Cuenta> comparator = new OrdenadorPorNumeroCuenta();
+		Comparator<Cuenta> comparator = new OrdenadorPorNombreTitular();
 		lista.sort(comparator);
-		
+		Comparator<Cuenta> comparatorN = new OrdenadorPorNumeroCuenta();
+		lista.sort(comparatorN);
 		System.out.println("despues de ordenar");
 		for (Cuenta cuenta: lista) {
 			System.out.println(cuenta);
@@ -67,13 +68,27 @@ class OrdenadorPorNumeroCuenta implements Comparator<Cuenta> {
 
 	@Override
 	public int compare(Cuenta o1, Cuenta o2) {
-		if(o1.getNumero()==o2.getNumero()) {
-			return 0;
-		} else if (o1.getNumero()>o2.getNumero()) {
-			return 1;
-		} else {
-			return -1;
-		}
+		//forma basica
+//		if(o1.getNumero()==o2.getNumero()) {
+//			return 0;
+//		} else if (o1.getNumero()>o2.getNumero()) {
+//			return 1;
+//		} else {
+//			return -1;
+//		}
+		//forma intermedia
+//		return o1.getNumero()-o2.getNumero();
+		//forma wrapper
+		return Integer.compare(o1.getNumero(), o2.getNumero());
+	}
+	
+}
+
+class OrdenadorPorNombreTitular implements Comparator<Cuenta> {
+
+	@Override
+	public int compare(Cuenta o1, Cuenta o2) {
+		return o1.getTitular().getNombre().compareTo(o2.getTitular().getNombre());
 	}
 	
 }
